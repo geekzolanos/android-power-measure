@@ -3,4 +3,27 @@
     <string name="title_activity_new">Nueva medicion</string>
     <string name="title_activity_main">Registro de medidores</string>
     <string name="location_status">Localizado. Latitud: %1$f | Longitud: %2$f</string>
+    <string name="power_title">Potencia (Watts)</string>
+    <string name="ph_power_value">0</string>
+    <string name="address_title">Direccion</string>
+    <string name="date_title">Fecha de creacion</string>
+    <string name="date_placeholder">00/00/00 00:00:00 AM</string>
+    <string name="main_empty_caption">Comienze a registrar mediciones utilizando el boton Agregar</string>
+    <string name="create_menu_save">Guardar</string>
+    <string name="details_menu_delete">Eliminar</string>
+    <string name="ph_default">TextView</string>
+    <string name="create_id_hint">Codigo de identificacion</string>
+    <string name="create_power_hint">Consumo (En Watts)</string>
+    <string name="create_address_hint">Direccion</string>
+    <string name="create_location_hint">Almacenar coordenadas de ubicacion</string>
+    <string name="detail_delete_title">Eliminar registro</string>
+    <string name="detail_delete_msg">Confirme ¿Desea eliminar el registro %s?\nEsta accion no se puede deshacer.</string>
+    <string name="default_btn_yes">Si</string>
+    <string name="default_btn_no">No</string>
+    <string name="details_delete_success">Medicion eliminada con exito.</string>
+    <string name="main_about_msg">Registro de medidores\nVersion %s\nDesarrollado por David Romero(@geekzolanos)\n\nhttps://github.com/geekzolanos/android_power_measure\n\nIcono diseñado por Payungkead from www.flaticon.es</string>
+    <string name="main_about_title">Acerca de</string>
+    <string name="default_btn_ok">Aceptar</string>
+    <string name="create_success">Medicion almacenada satisfactoriamente.</string>
+    <string name="menu_item_about">Acerca de</string>
 </resources>
