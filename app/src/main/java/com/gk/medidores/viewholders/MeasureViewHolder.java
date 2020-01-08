@@ -1,19 +1,16 @@
-package com.local.medidores.viewholders;
+package com.gk.medidores.viewholders;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.local.medidores.R;
-import com.local.medidores.models.Measure;
-
-/**
- * Created by djra23 on 23/01/18.
- */
+import com.gk.medidores.R;
+import com.gk.medidores.models.Measure;
 
 public class MeasureViewHolder extends RecyclerView.ViewHolder {
     private static final String[] COLORS = new String[] {"indigo", "teal", "purple", "orange"};
@@ -34,7 +31,7 @@ public class MeasureViewHolder extends RecyclerView.ViewHolder {
 
     public void setMeasure(Measure measure) {
         this.v_id.setText(measure.getDeviceId());
-        this.v_power.setText(Float.toString(measure.getPower()) + " Watts");
+        this.v_power.setText(String.format("%s Watts", measure.getPower()));
 
         if(this.v_picture == null) {
             this.setBackgroundColor();
@@ -47,7 +44,7 @@ public class MeasureViewHolder extends RecyclerView.ViewHolder {
         Context ctx = this.itemView.getContext();
         int idx = (int) Math.floor(Math.random() * (COLORS.length));
         colorId = this.itemView.getResources().getIdentifier(COLORS[idx], "color", ctx.getPackageName());
-        this.itemView.setBackgroundColor(ctx.getColor(colorId));
+        this.itemView.setBackgroundColor(ContextCompat.getColor(ctx, colorId));
     }
 
     private void setBackgroundImage(String path) {

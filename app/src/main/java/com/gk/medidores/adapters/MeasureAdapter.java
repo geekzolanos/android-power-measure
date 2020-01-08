@@ -1,19 +1,15 @@
-package com.local.medidores.adapters;
+package com.gk.medidores.adapters;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.local.medidores.R;
-import com.local.medidores.models.Measure;
-import com.local.medidores.viewholders.MeasureViewHolder;
+import com.gk.medidores.R;
+import com.gk.medidores.models.Measure;
+import com.gk.medidores.viewholders.MeasureViewHolder;
 
 import java.util.ArrayList;
-
-/**
- * Created by djra23 on 22/01/18.
- */
 
 public class MeasureAdapter extends RecyclerView.Adapter<MeasureViewHolder> {
     private static final int TYPE_EMPTY = 1;

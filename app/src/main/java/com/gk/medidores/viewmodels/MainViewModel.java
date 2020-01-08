@@ -1,17 +1,13 @@
-package com.local.medidores.viewmodels;
+package com.gk.medidores.viewmodels;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
-import com.local.medidores.db.AppDatabase;
-import com.local.medidores.models.Measure;
+import com.gk.medidores.db.AppDatabase;
+import com.gk.medidores.models.Measure;
 
 import java.util.List;
-
-/**
- * Created by djra23 on 22/01/18.
- */
 
 public class MainViewModel extends AndroidViewModel {
     private LiveData<List<Measure>> measures;

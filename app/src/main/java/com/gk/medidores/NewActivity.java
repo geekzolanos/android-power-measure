@@ -1,4 +1,4 @@
-package com.local.medidores;
+package com.gk.medidores;
 
 import android.Manifest;
 import android.content.Intent;
@@ -11,24 +11,23 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatCheckBox;
-import android.transition.TransitionManager;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatCheckBox;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.local.medidores.db.AppDatabase;
-import com.local.medidores.helpers.LocationHelper;
-import com.local.medidores.models.Measure;
+import com.gk.medidores.db.AppDatabase;
+import com.gk.medidores.helpers.LocationHelper;
+import com.gk.medidores.models.Measure;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,6 +37,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class NewActivity extends AppCompatActivity {
+    public static final int MEASURE_CREATED = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private EditText idView;
@@ -79,8 +79,8 @@ public class NewActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
-            requestPermissions(new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, 1000);
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, 1000);
         } else {
             LocationHelper.getLocation(this, locListener);
         }
@@ -95,10 +95,8 @@ public class NewActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.menu_item_save:
-                saveMeasure();
-                break;
+        if (item.getItemId() == R.id.menu_item_save) {
+            saveMeasure();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -144,8 +142,8 @@ public class NewActivity extends AppCompatActivity {
             new InsertTask(AppDatabase.getDb(this), new OnSuccessListener() {
                 @Override
                 void onSuccess() {
-                    Snackbar.make(idView, "Medicion almacenada satisfactoriamente.", Snackbar.LENGTH_LONG).show();
-                    onBackPressed();
+                    setResult(MEASURE_CREATED);
+                    finish();
                 }
             }).execute(measure);
         }

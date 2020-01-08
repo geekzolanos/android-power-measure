@@ -1,14 +1,9 @@
-package com.local.medidores.helpers;
+package com.gk.medidores.helpers;
 
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-
-/**
- * LocationHelper
- * Created by David Romero on 7/10/2017.
- */
 
 public class LocationHelper {
     public static void getLocation(final Context ctx, LocationListener listener) throws SecurityException {
