@@ -26,80 +26,82 @@
             android:tint="@android:color/darker_gray" />
     </FrameLayout>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_pick_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/image_preview"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="-30dp"
         android:src="@drawable/ic_add_a_photo_white_18dp"
         app:fabSize="normal"
         app:elevation="16dp"
         app:rippleColor="@color/black_translucid_800"/>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/image_preview"
         android:padding="8dp">
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/id_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:hint="Codigo de identificacion"
+            android:hint="@string/create_id_hint"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/power_layout">
 
-            <android.support.design.widget.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/data_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/power_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:hint="Consumo (En Watts)"
+            android:hint="@string/create_power_hint"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/id_layout"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <android.support.design.widget.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/data_power"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/address_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Direccion"
+            android:hint="@string/create_address_hint"
             app:layout_constraintTop_toBottomOf="@id/id_layout">
 
-            <android.support.design.widget.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/data_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.v7.widget.AppCompatCheckBox
+        <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/data_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:enabled="false"
-            android:hint="Almacenar coordenadas de ubicacion"
+            android:hint="@string/create_location_hint"
             app:layout_constraintTop_toBottomOf="@id/address_layout"/>
 
         <ProgressBar
@@ -113,9 +115,9 @@
             android:id="@+id/location_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="34dp"
+            android:layout_marginStart="34dp"
             android:visibility="invisible"
             android:text="@string/location_status"
             app:layout_constraintTop_toBottomOf="@id/data_location" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

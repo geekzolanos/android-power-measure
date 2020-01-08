@@ -18,5 +18,5 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textColor="@android:color/white"
-        android:text="Comienze a registrar mediciones utilizando el boton Agregar" />
+        android:text="@string/main_empty_caption" />
 </LinearLayout>
